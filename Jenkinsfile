@@ -33,6 +33,9 @@ pipeline {
             script {
               withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: 'MyID', usernameVariable: 'djorocas', passwordVariable: 'Cyberjunkie2#']]) {
                 sh 'git add .'
+                sh 'git config --global user.name "djorocas"'
+                sh 'git config --global user.email "djobukata@gmail.com"'
+                sh 'echo About to commit message'
                 sh 'git commit -am "Added artifacts"'
                 sh 'git push origin master'
               }
