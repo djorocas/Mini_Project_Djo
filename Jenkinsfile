@@ -36,8 +36,8 @@ pipeline {
                 sh("${git} config credential.helper '!f() { echo password=Cyberjunkie2#; }; f'")
                 sh("GIT_ASKPASS=false ${git} push origin master")
               }
+            }
         }
     }
   }
-
 }
