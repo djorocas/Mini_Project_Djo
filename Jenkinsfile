@@ -33,6 +33,7 @@ pipeline {
             script {
               withCredentials([usernamePassword(credentialsId: 'MyID', passwordVariable: 'Cyberjunkie2#', usernameVariable: 'djorocas')]) {
                 sh("git remote set-url origin https://github.com/djorocas/Mini_Project_Djo.git")
+                sh("git remote add origin https://djorocas:Cyberjunkie2#@github.com/djorocas/Mini_Project_Djo.git")
                 sh("git checkout -b master")
                 sh("git add .")
                 sh("git commit -am 'Testing'")
