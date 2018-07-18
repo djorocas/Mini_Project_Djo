@@ -34,6 +34,7 @@ pipeline {
               withCredentials([usernamePassword(credentialsId: 'MyID', passwordVariable: 'Cyberjunkie2#', usernameVariable: 'djorocas')]) {
                 sh("git remote rm origin")
                 sh("git remote add origin https://djorocas:Cyberjunkie2#@github.com/djorocas/Mini_Project_Djo.git")
+                sh("git branch -d branch_name")
                 sh("git checkout -b master")
                 sh("git add .")
                 sh("git commit -am 'Testing'")
