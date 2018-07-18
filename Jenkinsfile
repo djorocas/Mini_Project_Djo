@@ -37,7 +37,7 @@ pipeline {
                 sh 'git config --global user.email "djobukata@gmail.com"'
                 sh 'echo About to commit message'
                 sh 'git commit -am "Added artifacts"'
-                sh 'git push origin master'
+                sh 'git push'
               }
             }
         }
