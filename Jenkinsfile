@@ -31,14 +31,11 @@ pipeline {
     stage('Push') {
         steps {
             script {
-              withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: 'MyID', usernameVariable: 'djorocas', passwordVariable: '44c631a8cd1006e04d9af4b7ebff24523a0dd532']]) {
-                sh 'git add .'
-                sh 'git config --global user.name "Djo Mwanza"'
-                sh 'git config --global user.email "djobukata@gmail.com"'
-                sh 'echo About to commit message'
-                sh 'git commit -am "Added artifacts"'
-                sh 'git remote set-url origin git@github.com:djorocas/Mini_Project_Djo.git'
-                sh 'git push origin HEAD:master'
+              withCredentials([usernamePassword(credentialsId: 'MyID', passwordVariable: 'Cyberjunkie2#', usernameVariable: 'djorocas')]) {
+                sh("git add .")
+                sh("git commit -am 'Testing'")
+                sh("echo About to push")
+                sh('git push https://djorocas:Cyberjunkie2#@github.com/djorocas/Mini_Project_Djo.git')
               }
             }
         }
