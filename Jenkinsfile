@@ -27,6 +27,14 @@ pipeline {
         }
       }
     }
+
+    stage('Push to remote Brnach') {
+      steps {
+        sh 'git add .'
+        sh "git commit -am 'added artifacts'"
+        sh 'git push origin master'
+      }
+    }
   }
 
 }
