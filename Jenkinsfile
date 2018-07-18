@@ -30,7 +30,6 @@ pipeline {
 
     stage('Push') {
         steps {
-            script {
               withCredentials([usernamePassword(credentialsId: 'MyID', passwordVariable: 'Cyberjunkie2#', usernameVariable: 'djorocas')]) {
                 sh("git remote rm origin")
                 sh("git remote add origin git@github.com:djorocas/Mini_Project_Djo.git")
@@ -39,9 +38,8 @@ pipeline {
                 sh("git add .")
                 sh("git commit -am 'Testing'")
                 sh("echo About to push")
-                sh('git push https://djorocas:Cyberjunkie2#@github.com/djorocas/Mini_Project_Djo.git master:master')
+                sh('git push origin master:master')
               }
-            }
         }
     }
   }
