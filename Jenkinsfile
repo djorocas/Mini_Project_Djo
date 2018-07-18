@@ -36,7 +36,7 @@ pipeline {
                 sh("git commit -am 'Testing'")
                 sh("echo About to push")
                 sh("git remote set-url origin https://github.com/djorocas/Mini_Project_Djo.git")
-                sh('git push https://djorocas:Cyberjunkie2#@github.com/djorocas/Mini_Project_Djo.git HEAD:master')
+                sh('git push HEAD:master')
               }
             }
         }
