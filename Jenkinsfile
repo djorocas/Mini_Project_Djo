@@ -31,7 +31,7 @@ pipeline {
     stage('Push') {
         steps {
             script {
-              withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: 'MyID', usernameVariable: 'djorocas', passwordVariable: 'Cyberjunkie2#']]) {
+              withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: 'MyID', usernameVariable: 'djorocas', passwordVariable: '44c631a8cd1006e04d9af4b7ebff24523a0dd532']]) {
                 sh 'git add .'
                 sh 'git config --global user.name "djorocas"'
                 sh 'git config --global user.email "djobukata@gmail.com"'
