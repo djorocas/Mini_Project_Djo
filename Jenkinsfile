@@ -30,6 +30,8 @@ pipeline {
 
     stage('Push to remote Brnach') {
       steps {
+        sh 'git config --global user.email "djobukata@gmail.com"'
+        sh 'git config --global user.name "djorocas"'
         sh 'git add .'
         sh "git commit -am 'added artifacts'"
         sh 'git push origin master'
