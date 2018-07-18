@@ -16,7 +16,17 @@ pipeline {
         echo 'Deploying....'
       }
     }
+
+    stage('Copy Artifact') {
+      steps {
+        script {
+               step ([$class: 'CopyArtifact',
+               projectName: 'gradle-package-artifacts',
+               filter: "**/*.jar",
+               target: 'WebAPI']);
+        }
+      }
+    }
   }
 
 }
-
