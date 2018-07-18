@@ -17,12 +17,20 @@ pipeline {
       }
     }
 
+    stage('Clone Repo') {
+      steps {
+        sh 'rm -rf Mini_Project_Djo'
+        sh 'git clone https://github.com/djorocas/Mini_Project_Djo.git'
+        sh 'cd Mini_Project_Djo'
+      }
+    }
+
     stage('Copy Artifact') {
       steps {
         script {
                step ([$class: 'CopyArtifact',
                projectName: 'gradle-package-artifacts',
-               filter: "**/*.jar",
+               filter: "/*.jar",
                target: 'WebAPI']);
         }
       }
@@ -30,15 +38,11 @@ pipeline {
 
     stage('Push') {
         steps {
-              withCredentials([usernamePassword(credentialsId: 'MyID', passwordVariable: '43a6633c950e60b378e54b7ee4caf3fa6d6daf43', usernameVariable: 'djorocas')]) {
-                sh("git remote rm origin")
-                sh("git remote add origin git@github.com:djorocas/Mini_Project_Djo.git")
-                sh("git branch -D master")
-                sh("git checkout -b master")
+              withCredentials([usernamePassword(credentialsId: 'MyID', passwordVariable: 'Cyberjunkie2#', usernameVariable: 'djorocas')]) {
                 sh("git add .")
                 sh("git commit -am 'Testing'")
                 sh("echo About to push")
-                sh('git push origin master:master')
+                sh('git push origin master')
               }
         }
     }
