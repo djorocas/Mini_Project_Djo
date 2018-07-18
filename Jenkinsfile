@@ -32,9 +32,9 @@ pipeline {
         steps {
             script {
               withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: 'MyID', usernameVariable: 'djorocas', passwordVariable: 'Cyberjunkie2#']]) {
-                sh("${git} config credential.username djorocas")
-                sh("${git} config credential.helper '!f() { echo password=Cyberjunkie2#; }; f'")
-                sh("GIT_ASKPASS=false ${git} push origin master")
+                sh 'git add .'
+                sh 'git commit -am "Added artifacts"'
+                sh 'git push origin master'
               }
             }
         }
