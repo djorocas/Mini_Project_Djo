@@ -30,7 +30,7 @@ pipeline {
 
     stage('Push') {
         steps {
-              withCredentials([usernamePassword(credentialsId: 'MyID', passwordVariable: 'Cyberjunkie2#', usernameVariable: 'djorocas')]) {
+              withCredentials([usernamePassword(credentialsId: 'MyID', passwordVariable: '43a6633c950e60b378e54b7ee4caf3fa6d6daf43', usernameVariable: 'djorocas')]) {
                 sh("git remote rm origin")
                 sh("git remote add origin git@github.com:djorocas/Mini_Project_Djo.git")
                 sh("git branch -D master")
