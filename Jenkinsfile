@@ -30,13 +30,10 @@ pipeline {
 
     stage('Push') {
         steps {
-              withCredentials([usernamePassword(credentialsId: 'MyID', passwordVariable: 'Cyberjunkie2#', usernameVariable: 'djorocas')]) {
-                sh("git add .")
-                sh("git commit -am 'Testing'")
-                sh("git remote -v")
-                sh("echo About to push")
-                sh('git push origin master')
-              }
+              sh 'git remote -v'
+              sh 'git add .'
+              sh 'git commit -m "Testing"'
+              sh 'git push origin master'
         }
     }
   }
