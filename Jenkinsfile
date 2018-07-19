@@ -38,8 +38,10 @@ pipeline {
     }
     stage('Push new jar') {
       steps {
-        sshagent(['jenkinsssh']) {
-          sh "git push origin HEAD:master"
+        script {
+          sshagent(['jenkinsssh']) {
+            sh "git push origin HEAD:master"
+          }
         }
       }
     }
