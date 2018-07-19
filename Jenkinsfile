@@ -31,7 +31,7 @@ pipeline {
     stage('Push') {
         steps {
               sh 'git remote -v'
-              sh 'git add .'
+              sh 'git add --all'
               sh 'git commit -m "Testing"'
               sh 'git push origin master'
         }
