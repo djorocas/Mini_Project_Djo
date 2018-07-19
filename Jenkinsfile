@@ -28,17 +28,20 @@ pipeline {
       }
     }
 
-    stage('Push') {
+    stage('Commit Artifacts') {
         steps {
               sh 'git remote -v'
               sh 'echo check new remote'
               sh 'git add .'
               sh "git commit -m 'Pushing new data'"
-              sh 'git config user.name'
-              sh 'git config remote.origin.url'
-              sh 'git push origin HEAD:master'
-
         }
+    }
+    stage('Push new jar') {
+      steps {
+        sshagent(['jenkinsssh']) {
+          sh "git push origin HEAD:master"
+        }
+      }
     }
   }
 }
