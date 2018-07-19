@@ -31,13 +31,12 @@ pipeline {
     stage('Push') {
         steps {
               sh 'git remote -v'
-              sh 'git remote rm origin'
-              sh "git remote add origin https://djorocas:'Cyberjunkie2#'@github.com/djorocas/Mini_Project_Djo.git"
               sh 'echo check new remote'
-              sh 'git remote -v'
               sh 'git add .'
               sh "git commit -m 'Pushing new data'"
               sh 'git config user.name'
+              sh 'git config user.username'
+              sh 'git config remote.origin.url'
               sh 'git push origin HEAD:master'
 
         }
