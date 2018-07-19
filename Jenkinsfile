@@ -34,8 +34,8 @@ pipeline {
               sh 'git add --all'
               sh 'git show-ref'
               sh "git commit -m 'Pushing new data'"
-              sh 'git checkout master'
-              sh 'git push origin master'
+              sh 'git rev-parse --abbrev-ref HEAD'
+              sh 'git push origin HEAD:master'
 
         }
     }
