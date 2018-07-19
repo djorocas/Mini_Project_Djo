@@ -31,10 +31,9 @@ pipeline {
     stage('Push') {
         steps {
               sh 'git remote -v'
-              sh 'git add --all'
-              sh 'git show-ref'
+              sh 'git add .'
               sh "git commit -m 'Pushing new data'"
-              sh 'git rev-parse --abbrev-ref HEAD'
+              sh 'git config user.name'
               sh 'git push origin HEAD:master'
 
         }
