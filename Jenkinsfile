@@ -17,25 +17,17 @@ pipeline {
       }
     }
 
-    stage('Clone Repo') {
-      steps {
-        sh 'rm -rf Mini_Project_Djo'
-        sh 'git clone https://github.com/djorocas/Mini_Project_Djo.git'
-      }
-    }
-
     stage('Copy Artifact') {
       steps {
-        dir('cd Mini_Project_Djo'){
           script {
                  step ([$class: 'CopyArtifact',
                  projectName: 'gradle-package-artifacts',
                  filter: "/*.jar",
                  target: 'WebAPI']);
           }
-        }
       }
     }
+
     stage('Push') {
         steps {
               withCredentials([usernamePassword(credentialsId: 'MyID', passwordVariable: 'Cyberjunkie2#', usernameVariable: 'djorocas')]) {
