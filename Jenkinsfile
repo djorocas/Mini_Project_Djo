@@ -32,8 +32,7 @@ pipeline {
         steps {
               sh 'git remote -v'
               sh 'git add --all'
-              sh 'git commit -m "Testing"'
-              sh 'git push origin master'
+              sh 'git show-ref'
         }
     }
   }
