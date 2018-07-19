@@ -22,7 +22,7 @@ pipeline {
           script {
                  step ([$class: 'CopyArtifact',
                  projectName: 'gradle-package-artifacts',
-                 filter: "/*.jar",
+                 filter: "**/*.jar",
                  target: 'WebAPI']);
           }
       }
