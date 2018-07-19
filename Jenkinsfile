@@ -33,6 +33,10 @@ pipeline {
               sh 'git remote -v'
               sh 'git add --all'
               sh 'git show-ref'
+              sh "git commit -m 'Pushing new data'"
+              sh 'git checkout master'
+              sh 'git push origin master'
+
         }
     }
   }
