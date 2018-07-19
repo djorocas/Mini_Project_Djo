@@ -33,6 +33,7 @@ pipeline {
               withCredentials([usernamePassword(credentialsId: 'MyID', passwordVariable: 'Cyberjunkie2#', usernameVariable: 'djorocas')]) {
                 sh("git add .")
                 sh("git commit -am 'Testing'")
+                sh("git remote -v")
                 sh("echo About to push")
                 sh('git push origin master')
               }
