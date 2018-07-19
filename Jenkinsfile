@@ -36,14 +36,13 @@ pipeline {
               sh "git commit -m 'Pushing new data'"
         }
     }
-    
+
     stage('Push new jar') {
       steps {
-            withCredentials([usernamePassword(credentialsId: 'MyID', passwordVariable: 'Cyberjunkie2#', usernameVariable: 'djorocas')]) {
-              sh('git push origin HEAD:master')
-            }
+        withCredentials([sshUserPrivateKey(credentialsId: 'jenkinsssh', keyFileVariable: 'SSH_KEY')]) {
+          sh("git push origin HEAD:master")
+        }
       }
-
     }
   }
 }
