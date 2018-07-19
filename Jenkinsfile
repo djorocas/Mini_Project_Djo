@@ -32,7 +32,7 @@ pipeline {
         steps {
               sh 'git remote -v'
               sh 'git remote rm origin'
-              sh "git remote add origin https://djorocas:Cyberjunkie2#@github.com/djorocas/Mini_Project_Djo.git"
+              sh "git remote add origin https://djorocas:'Cyberjunkie2#'@github.com/djorocas/Mini_Project_Djo.git"
               sh 'echo check new remote'
               sh 'git remote -v'
               sh 'git add .'
